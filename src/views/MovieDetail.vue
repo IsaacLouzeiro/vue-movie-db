@@ -64,9 +64,6 @@ export default {
     }
   }
 
-  .plot-movie {
-  }
-
   .type-movie {
     display: inline-block;
     padding: 5px 16px;

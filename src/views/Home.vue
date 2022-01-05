@@ -1,36 +1,34 @@
 <template>
-  <div class="home">
-    <div class="featured-card">
-      <router-link to="/movie/tt0409591">
-        <img src="https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg" alt="Naruto Poster" class="featured-img" />
-        <div class="detail">
-          <h3>Naruto</h3>
-          <p>Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.</p>
-        </div>
-      </router-link>
-    </div>
+    <div class="home">
+        <header>
+            <div class="bg-header"></div>
+            <div class="content-header">
+                <h1>Lou<span>Z</span></h1>
 
-    <form @submit.prevent="SearchMovies()" class="search-box">
-      <input type="text" placeholder="What are you looking for?" v-model="search">
-      <input type="submit" value="Search">
-    </form>
+                <h3>Are you looking for watch a movie or serie?</h3>
 
-    <div class="movies-list">
-      <div class="movie" v-for="movie in movies" :key="movie.imdbID">
-        
-        <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
-          <div class="product-image">
-            <img :src="movie.Poster" alt="Movie Poster">
-            <div class="type">{{ movie.Type }}</div>
-          </div>
-            <div class="detail">
-              <p class="year">{{ movie.Year }}</p>
-              <h3>{{ movie.Title }}</h3>
+                <form @submit.prevent="SearchMovies()" class="search-box">
+                    <input type="text" placeholder="Search..." v-model="search">
+                    <input type="submit" value="Search">
+                </form>
             </div>
-        </router-link>
-      </div>
+        </header>
+
+        <div class="movies-list">
+            <div class="movie" v-for="movie in movies" :key="movie.imdbID">
+                <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
+                    <div class="product-image">
+                        <img :src="movie.Poster" alt="Movie Poster">
+                        <div class="type">{{ movie.Type }}</div>
+                    </div>
+                    <div class="detail">
+                        <p class="year">{{ movie.Year }}</p>
+                        <h3>{{ movie.Title }}</h3>
+                    </div>
+                </router-link>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -65,146 +63,192 @@ export default {
 </script>
 
 <style lang="scss">
-.home {
-  .featured-card {
-      position: relative;
-      
-      .featured-img {
-          display: block;
-          width: 100%;
-          height: 300px;
-          object-fit: cover;
-          position: relative;
-          z-index: 0;
-      }
 
-      .detail {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.6);
-        padding: 16px;
-        z-index: 1;
-        
-        h3 {
-          color: #fff;
-          margin-bottom: 16px;
-        }
+    //colors
+    $color1: #04494F;
+    $color2: #007A85;
+    $color3: #64BEBF;
+    $color4: #fff;
+    $color5: #55B1BB;
 
-        p {
-          color: #fff;
-        }
-      }
-    }
+    .home {
+        header {
+            background-color: #000;
+            position: relative;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
 
-    .search-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-
-      input {
-        display: block;
-        appearance: none;
-        border: none;
-        outline: none;
-        background-color: none;
-
-        &[type="text"] {
-          width: 100%;
-          color: #fff;
-          background-color: #496583;
-          font-size: 1.2em;
-          padding: 10px 16px;
-          border-radius: 8px;
-          margin-bottom: 15px;
-          transition: 0.4s;
-
-          &::placeholder {
-            color: #f3f3f3;
-          }
-
-          &:focus {
-            box-shadow: 0px 3px  6px rgba(0,0,0,0.2);
-          }
-        }
-
-        &[type="submit"] {
-          width: 100%;
-          max-width: 300px;
-          background-color: #42b883;
-          padding: 16px;
-          border-radius: 8px;
-          color: #fff;
-          font-size: 1.2em;
-          text-transform: uppercase;
-          transition: 0.4s;
-
-          &:active {
-            background-color: #3b8070;
-          }
-        }
-      }
-    }
-
-    .movies-list {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0px 8px;
-
-      .movie {
-        max-width: 50%;
-        flex: 1 1 50%;
-        padding: 16px 8px;
-
-        .movie-link {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-           
-           .product-image {
-             position: relative;
-             display: block;
-
-             img {
-               display: block;
-               width: 100%;
-               height: 275px;
-               object-fit: cover;
-             }
-
-             .type {
+            .bg-header {
+                background-image: url('~@/assets/bg-header.jpg');
+                background-size: 100%;
+                background-position: center;
+                opacity: .6;
+                width: 100%;
+                height: 100%;
                 position: absolute;
-                padding: 8px 16px;
-                background-color: #42b883;
-                color: #fff;
-                bottom: 16px;
-                left: 0;
-                text-transform: capitalize;
-             }
-           }
 
-           .detail {
-             background-color: #496583;
-             padding: 16px 8px;
-             flex: 1 1 100%;
-             border-radius: 0px 0px 8px 8px;
+            }
 
-             .year {
-               color: #aaa;
-               font-size: .85em;
-             }
+            .content-header {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                text-align: center;
 
-             h3 {
-               color: #fff;
-               font-weight: 600;
-               font-size: 1em;
-             }
-           }
+                h1 {
+                    color: $color3;
+                    font-size: 3.4em;
+                    margin-bottom: 15px;
+                    text-shadow: 1px 1px 10px rgba(0, 0, 0, .8);
+
+                    span {
+                        color: $color4;
+                    }
+                }
+
+                h3 {
+                    color: $color4;
+                    font-size: 1.3em;
+                    margin-bottom: .8em;
+                    font-weight: 400;
+
+                    @media only screen and (max-width: 575.98px) {
+                        margin: 0 10px;
+                    }
+                }
+                
+                form {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    input {
+                        display: block;
+                        appearance: none;
+                        border: none;
+                        outline: none;
+                        background-color: none;
+             
+                        &[type="text"] {
+                            background-color: $color4;
+                            width: 100%;
+                            max-width: 300px;
+                            font-size: 1.2em;
+                            padding: 10px 16px;
+                            border-radius: 8px;
+                            margin-bottom: 15px;
+                            transition: 0.4s;
+                            margin-top: 13px;
+                            margin-right: 10px;
+
+
+                            &::placeholder {
+                                color: $color1;
+                            }
+                            
+                            &:focus {
+                                box-shadow: 0px 3px  6px rgba(0,0,0,0.2);
+                            }
+
+                            @media only screen and (max-width: 575.98px) {
+                                font-size: 1.1em;
+                                margin-right: 0;
+                            }
+                        }
+
+                        &[type="submit"] {
+                            max-width: 300px;
+                            background-color: rgba($color: #000000, $alpha: 0);
+                            padding: 10px 25px;
+                            border-radius: 50px;
+                            color: $color4;
+                            border: 4px solid;
+                            font-size: 1.2em;
+                            text-transform: uppercase;
+                            transition: 0.4s;
+
+                            &:active {
+                                background-color: #3b8070;
+                            }
+
+                            @media only screen and (max-width: 575.98px) {
+                                font-size: 1em;
+                                width: 100%;
+                            }
+                        }
+                        
+                    }
+
+                    @media only screen and (max-width: 575.98px) {
+                        flex-wrap: wrap;
+                        padding: 0 7px;
+                    }
+
+                }
+            }
         }
-      }
+
+        .movies-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0px 8px;
+
+            .movie {
+                max-width: 200px;
+                flex: 1 1 50%;
+                padding: 16px 8px;
+
+                .movie-link {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                
+                    .product-image {
+                        position: relative;
+                        display: block;
+
+                        img {
+                        display: block;
+                        width: 100%;
+                        height: 275px;
+                        object-fit: cover;
+                        }
+
+                        .type {
+                            position: absolute;
+                            padding: 8px 16px;
+                            background-color: #42b883;
+                            color: #fff;
+                            bottom: 16px;
+                            left: 0;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .detail {
+                        background-color: #496583;
+                        padding: 16px 8px;
+                        flex: 1 1 100%;
+                        border-radius: 0px 0px 8px 8px;
+
+                        .year {
+                        color: #aaa;
+                        font-size: .85em;
+                        }
+
+                        h3 {
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
     }
-}
 </style>

@@ -39,7 +39,7 @@
     nav {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         padding: 10px 16px;
         background-color: $color1;
         box-shadow: 0px 0px 6px rgba(0,0,0,0.1);

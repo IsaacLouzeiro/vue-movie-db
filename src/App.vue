@@ -54,7 +54,7 @@ export default {
     #app {
         height: 100%;
         display: flex;
-        flex-wrap: unset;
+        flex-wrap: nowrap;
         flex-direction: column;
     }
 

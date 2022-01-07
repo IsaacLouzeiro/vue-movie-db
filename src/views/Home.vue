@@ -65,15 +65,15 @@ export default {
 <style lang="scss">
 
     //colors
-    $color1: #04494F;
-    $color2: #007A85;
-    $color3: #64BEBF;
-    $color4: #fff;
-    $color5: #55B1BB;
+    $color1: #357ded;
+    $color2: #151515;
+    $color3: #32e875;
+    $color4: #e1e5ee;
+    $color5: #5438dc;
 
     .home {
         header {
-            background-color: #000;
+            background-color: $color2;
             position: relative;
             height: 300px;
             display: flex;
@@ -83,6 +83,7 @@ export default {
 
             .bg-header {
                 background-image: url('~@/assets/bg-header.jpg');
+                filter: blur(4px);
                 background-size: 100%;
                 background-position: center;
                 opacity: .6;
@@ -147,7 +148,7 @@ export default {
 
 
                             &::placeholder {
-                                color: $color1;
+                                color: $color2;
                             }
                             
                             &:focus {
@@ -207,7 +208,8 @@ export default {
                 display: flex;
                 flex-direction: column;
                 height: 100%;
-                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+                transition: .2s;
                 
                     .product-image {
                         position: relative;
@@ -218,13 +220,12 @@ export default {
                         width: 100%;
                         height: 275px;
                         object-fit: cover;
-                        transition: .5s;
                         }
 
                         .type {
                             position: absolute;
                             padding: 8px 16px;
-                            background-color: $color2;
+                            background-color: $color5;
                             color: $color4;
                             bottom: 16px;
                             left: 0;
@@ -233,26 +234,26 @@ export default {
                     }
 
                     .detail {
-                        background-color: $color3;
+                        background-color: $color1;
                         padding: 16px 8px;
                         flex: 1 1 100%;
                         border-radius: 0px 0px 8px 8px;
 
                         .year {
-                        color: $color4;
+                        color: $color3;
                         font-size: .85em;
+                        font-weight: bold;
                         }
 
                         h3 {
-                        color: $color1;
+                        color: $color4;
                         font-weight: 600;
                         font-size: 1em;
                         }
                     }
 
-                    &:hover img {
-                        width: 106%;
-                        margin: -3%;
+                    &:hover {
+                        margin-top: 10px;
                     }
                 }
             }

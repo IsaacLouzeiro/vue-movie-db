@@ -26,11 +26,11 @@ export default {
 
 <style lang="scss">
     //colors
-    $color1: #04494F;
-    $color2: #007A85;
-    $color3: #64BEBF;
-    $color4: #fff;
-    $color5: #55B1BB;
+    $color1: #357ded;
+    $color2: #151515;
+    $color3: #32e875;
+    $color4: #e1e5ee;
+    $color5: #5438dc;
 
     * { 
         margin: 0; 
@@ -48,7 +48,7 @@ export default {
     }
 
     body {
-        background-color: $color2;
+        background-color: $color4;
     }
 
     #app {

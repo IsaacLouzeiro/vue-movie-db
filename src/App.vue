@@ -117,7 +117,7 @@ export default {
     
             .by {
                 color: $color4;
-                font-size: 1.1em;
+                font-size: 1em;
                 display: block;
                 display: flex;
                 justify-content: end;

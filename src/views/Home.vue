@@ -83,7 +83,7 @@ export default {
 
             .bg-header {
                 background-image: url('~@/assets/bg-header.jpg');
-                filter: blur(4px);
+                filter: blur(2px);
                 background-size: 100%;
                 background-position: center;
                 opacity: .6;

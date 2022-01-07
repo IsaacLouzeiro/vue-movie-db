@@ -207,6 +207,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 height: 100%;
+                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
                 
                     .product-image {
                         position: relative;
@@ -217,13 +218,14 @@ export default {
                         width: 100%;
                         height: 275px;
                         object-fit: cover;
+                        transition: .5s;
                         }
 
                         .type {
                             position: absolute;
                             padding: 8px 16px;
-                            background-color: #42b883;
-                            color: #fff;
+                            background-color: $color2;
+                            color: $color4;
                             bottom: 16px;
                             left: 0;
                             text-transform: capitalize;
@@ -231,21 +233,26 @@ export default {
                     }
 
                     .detail {
-                        background-color: #496583;
+                        background-color: $color3;
                         padding: 16px 8px;
                         flex: 1 1 100%;
                         border-radius: 0px 0px 8px 8px;
 
                         .year {
-                        color: #aaa;
+                        color: $color4;
                         font-size: .85em;
                         }
 
                         h3 {
-                        color: #fff;
+                        color: $color1;
                         font-weight: 600;
                         font-size: 1em;
                         }
+                    }
+
+                    &:hover img {
+                        width: 106%;
+                        margin: -3%;
                     }
                 }
             }

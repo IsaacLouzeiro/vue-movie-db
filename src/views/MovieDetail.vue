@@ -168,7 +168,6 @@ header {
     margin: auto;
     display: flex;
     flex-wrap: nowrap;
-    border: 1px solid;
 
     .content-one {
 

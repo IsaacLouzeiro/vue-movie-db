@@ -165,8 +165,10 @@ header {
     width: 100%;
     max-width: 1400px;
     padding: 0 20px;
+    margin: auto;
     display: flex;
     flex-wrap: nowrap;
+    border: 1px solid;
 
     .content-one {
 
